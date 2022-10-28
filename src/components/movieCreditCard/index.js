@@ -14,23 +14,24 @@ import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
 import Chip from "@mui/material/Chip";
+import PersonIcon from '@mui/icons-material/Person';
 
-export default function PeopleCard({ person }) {
+export default function MovieCreditCard({ movieCredits }) {
   const chip = { margin: 0.5 };
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         title={
           <Typography variant="h5" component="p">
-            {person.name}{" "}
+            {movieCredits.name}{" "}
           </Typography>
         }
       />
       <CardMedia
         sx={{ height: 500 }}
         image={
-          person.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+            movieCredits.profile_path
+            ? `https://image.tmdb.org/t/p/w500/${movieCredits.profile_path}`
             : img
         }
       />
@@ -38,13 +39,19 @@ export default function PeopleCard({ person }) {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
-              Popularity:{Math.round(person.popularity)}
+              Popularity:{Math.round(movieCredits.popularity)}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
+      <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+            <PersonIcon fontSize="small" />
+            {movieCredits.character}
+            </Typography>
+          </Grid>
       <CardActions disableSpacing>
-        <Link to={`/people/${person.id}`}>
+        <Link to={`/people/${movieCredits.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
