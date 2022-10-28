@@ -14,6 +14,7 @@ import Button from "@mui/material/Button";
 import SimilarMovieList from "../similarMoviesList";
 import RecommendedMovieList from "../recommendedMovieList";
 import Grid from "@mui/material/Grid";
+import MovieCreditList from "../movieCreditList"
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -24,7 +25,8 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie ,similarMovies, recommendedMovies}) => {  // Don't miss this!
+const MovieDetails = ({ movie ,similarMovies, recommendedMovies, movieCredits}) => {  // Don't miss this!
+  console.log(movieCredits)
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <>
@@ -85,6 +87,14 @@ const MovieDetails = ({ movie ,similarMovies, recommendedMovies}) => {  // Don't
         <NavigationIcon />
         Reviews
       </Fab>
+      <Typography variant="h5" component="h3">
+        Cast
+      </Typography>
+      <Grid container sx={{ padding: '20px' }}>
+      <Grid item container spacing={5}>
+        <MovieCreditList movieCredits={movieCredits}/>
+      </Grid>
+    </Grid>
       <Typography variant="h5" component="h3">
         Recommended Movies
       </Typography>
