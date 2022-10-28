@@ -13,9 +13,10 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
+import Chip from "@mui/material/Chip";
 
 export default function PeopleCard({ person, action }) {
+  const chip = { margin: 0.5 };
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -43,6 +44,9 @@ export default function PeopleCard({ person, action }) {
       <CardContent>
         <Grid container>
           <Grid item xs={6}>
+          <Typography variant="h6" component="p">
+              Known for: {person.known_for[0].title}
+            </Typography>
             <Typography variant="h6" component="p">
               Popularity:{Math.round(person.popularity)}
             </Typography>
