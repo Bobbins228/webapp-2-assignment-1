@@ -9,7 +9,8 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
-
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -22,7 +23,6 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   return (
     <>
       <Typography variant="h5" component="h3">
@@ -84,6 +84,12 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <NavigationIcon />
         Reviews
       </Fab>
+      <Link to={`/movies/${movie.id}/similar`} state={{
+                      movieId: movie.id,}}>
+          <Button variant="outlined" size="medium" color="primary">
+            Similar Movies
+          </Button>
+        </Link>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>

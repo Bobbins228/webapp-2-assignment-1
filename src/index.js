@@ -21,7 +21,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { createRoot } from 'react-dom/client';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
-
+import SimilarMoviesPage from './pages/similarMoviesPage'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -47,6 +47,7 @@ const App = () => {
       <Route path="/movies/top-rated" element={<TopRatedMoviesPage />} />
       <Route path="/movies/trending" element={<TrendingMoviesPage />} />
       <Route path="/movies/:id" element={<MoviePage />} />
+      <Route path="/movies/:id/similar" element={<SimilarMoviesPage />} />
       <Route path="/movies/home" element={<HomePage />} />
       <Route path="/people" element={<PopularPeoplePage />} />
       <Route path="/people/trending" element={<TrendingPeoplePage />} />
