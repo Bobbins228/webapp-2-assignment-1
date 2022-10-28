@@ -9,7 +9,10 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
-
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+import SimilarMovieList from "../similarMoviesList";
+import Grid from "@mui/material/Grid";
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -20,19 +23,16 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie ,similarMovies}) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   return (
     <>
       <Typography variant="h5" component="h3">
         Overview
-      </Typography>
-
+      </Typography>  
       <Typography variant="h6" component="p">
-        {movie.overview}
+        {movie.overview} 
       </Typography>
-
       <Paper 
         component="ul" 
         sx={{...root}}
@@ -84,6 +84,14 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <NavigationIcon />
         Reviews
       </Fab>
+      <Typography variant="h5" component="h3">
+        Similar Movies
+      </Typography>
+      <Grid container sx={{ padding: '20px' }}>
+      <Grid item container spacing={5}>
+        <SimilarMovieList similarMovies={similarMovies}/>
+      </Grid>
+    </Grid>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
