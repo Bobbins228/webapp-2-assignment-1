@@ -1,4 +1,3 @@
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -8,36 +7,28 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
+import StarRateIcon from "@mui/icons-material/StarRate";
+import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
-import { Link } from "react-router-dom";
-import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
-import Chip from "@mui/material/Chip";
-
-export default function PeopleCard({ person, action }) {
-  const chip = { margin: 0.5 };
+import PersonIcon from '@mui/icons-material/Person';
+import { Link } from "react-router-dom";
+export default function ActorMovieCreditCard({ personMovie }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ minWidth: 210 ,maxWidth: 345 }}>
       <CardHeader
-        avatar={
-            person.favorite ? (
-            <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
-        }
         title={
           <Typography variant="h5" component="p">
-            {person.name}{" "}
+            {personMovie.title}{" "}
           </Typography>
         }
       />
       <CardMedia
         sx={{ height: 500 }}
         image={
-          person.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+            personMovie.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${personMovie.poster_path}`
             : img
         }
       />
@@ -45,19 +36,29 @@ export default function PeopleCard({ person, action }) {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
-              Popularity:{Math.round(person.popularity)}
+              <CalendarIcon fontSize="small" />
+              {personMovie.release_date}
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              <StarRateIcon fontSize="small" />
+              {"  "} {personMovie.vote_average}{" "}
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+            <PersonIcon fontSize="small" />
+            {personMovie.character}
             </Typography>
           </Grid>
         </Grid>
-      </CardContent>
-      <CardActions disableSpacing>
-        {action(person)}
-        <Link to={`/people/${person.id}`}>
+        <Link to={`/movies/${personMovie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
         </Link>
-      </CardActions>
+      </CardContent>
     </Card>
   );
 }

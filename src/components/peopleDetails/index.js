@@ -3,8 +3,9 @@ import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import CakeIcon from '@mui/icons-material/Cake';
-import { Link } from "react-router-dom";
 import TheatersIcon from '@mui/icons-material/Theaters';
+import ActorMovieCreditsList from "../actorMovieCreditsList"
+import Grid from "@mui/material/Grid";
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -15,7 +16,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const PeopleDetails = ({ person }) => {  
+const PeopleDetails = ({ person, personMovie }) => {  
     function age(person){
         const date = new Date();
         if (person.birthday === null){
@@ -32,9 +33,8 @@ const PeopleDetails = ({ person }) => {
       <Typography variant="h5" component="h3">
         Overview
       </Typography>
-
       <Typography variant="h6" component="p">
-        {person.name}
+        {person.biography}
       </Typography>
       <Paper component="ul" sx={{...root}}>
         <Chip  label={`Popularity: ${Math.round(person.popularity)}`} />
@@ -52,7 +52,14 @@ const PeopleDetails = ({ person }) => {
         </li>
     
       </Paper>
-    
+      <Typography variant="h5" component="h3">
+        Movie Credits
+      </Typography>
+      <Grid container sx={{ padding: '20px' }}>
+      <Grid item container spacing={5}>
+        <ActorMovieCreditsList personMovie={personMovie}/>
+      </Grid>
+    </Grid>
       </>
   );
 };
