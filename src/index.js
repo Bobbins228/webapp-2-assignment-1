@@ -14,6 +14,7 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import NowPlayingPageMoviesPage from "./pages/nowPlayingMoviesPage";
 import SiteHeader from './components/siteHeader';
 import PopularPeoplePage from './pages/popularPeoplePage';
+import TrendingPeoplePage from './pages/trendingPeoplePage';
 import PersonDetailsPage from './pages/personDetailsPage';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -44,10 +45,11 @@ const App = () => {
       <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
       <Route path="/movies/now-playing" element={<NowPlayingPageMoviesPage />} />
       <Route path="/movies/top-rated" element={<TopRatedMoviesPage />} />
-      <Route path="/movies/trending-movies" element={<TrendingMoviesPage />} />
+      <Route path="/movies/trending" element={<TrendingMoviesPage />} />
       <Route path="/movies/:id" element={<MoviePage />} />
       <Route path="/movies/home" element={<HomePage />} />
       <Route path="/people" element={<PopularPeoplePage />} />
+      <Route path="/people/trending" element={<TrendingPeoplePage />} />
       <Route path="/people/:id" element={<PersonDetailsPage />} />
       <Route exact path="/register" element={<RegisterPage />} />
       <Route exact path="/reset" element={<ResetPage />} />
