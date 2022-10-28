@@ -12,6 +12,7 @@ import MovieReviews from "../movieReviews"
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import SimilarMovieList from "../similarMoviesList";
+import RecommendedMovieList from "../recommendedMovieList";
 import Grid from "@mui/material/Grid";
 const root = {
     display: "flex",
@@ -23,7 +24,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie ,similarMovies}) => {  // Don't miss this!
+const MovieDetails = ({ movie ,similarMovies, recommendedMovies}) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <>
@@ -85,6 +86,14 @@ const MovieDetails = ({ movie ,similarMovies}) => {  // Don't miss this!
         Reviews
       </Fab>
       <Typography variant="h5" component="h3">
+        Recommended Movies
+      </Typography>
+      <Grid container sx={{ padding: '20px' }}>
+      <Grid item container spacing={5}>
+        <RecommendedMovieList recommendedMovies={recommendedMovies}/>
+      </Grid>
+    </Grid>
+    <Typography variant="h5" component="h3">
         Similar Movies
       </Typography>
       <Grid container sx={{ padding: '20px' }}>
