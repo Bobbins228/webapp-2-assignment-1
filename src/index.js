@@ -9,8 +9,10 @@ import ResetPage from "./pages/resetPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
-import PopularMoviesPage from "./pages/popularMoviesPage"
-import SiteHeader from './components/siteHeader'
+import PopularMoviesPage from "./pages/popularMoviesPage";
+import SiteHeader from './components/siteHeader';
+import PopularPeoplePage from './pages/popularPeoplePage';
+import PersonDetailsPage from './pages/personDetailsPage';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { createRoot } from 'react-dom/client';
@@ -41,6 +43,8 @@ const App = () => {
       <Route path="/movies/popular" element={<PopularMoviesPage />} />
       <Route path="/movies/:id" element={<MoviePage />} />
       <Route path="/movies/home" element={<HomePage />} />
+      <Route path="/people" element={<PopularPeoplePage />} />
+      <Route path="/people/:id" element={<PersonDetailsPage />} />
       <Route exact path="/register" element={<RegisterPage />} />
       <Route exact path="/reset" element={<ResetPage />} />
       <Route path="/" element={<LoginPage />} />
