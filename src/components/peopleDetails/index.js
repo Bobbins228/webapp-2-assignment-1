@@ -18,6 +18,9 @@ const chip = { margin: 0.5 };
 const PeopleDetails = ({ person }) => {  
     function age(person){
         const date = new Date();
+        if (person.birthday === null){
+            return null
+        }
         var fullDate = person.birthday;
         var currentYear = date.getFullYear();
         var birthYearInt = parseInt(fullDate.slice(0, 4));
