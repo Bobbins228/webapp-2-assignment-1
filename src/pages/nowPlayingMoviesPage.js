@@ -1,12 +1,11 @@
 import React from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import { getPopularMovies } from "../api/tmdb-api";
+import { getNowPlayingMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
-//caching implemented in previous commit *Fix upcoming movies page.*
 const PopularPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('popular', getPopularMovies)
+  const {  data, error, isLoading, isError }  = useQuery('now playing', getNowPlayingMovies)
 
   if (isLoading) {
     return <Spinner />
@@ -19,7 +18,7 @@ const PopularPage = (props) => {
 
   return (
     <PageTemplate
-      title='Popular Movies'
+      title='Now Playing Movies'
       movies={movies}
       action={(movie) => {
         return <AddToFavoritesIcon movie={movie} />

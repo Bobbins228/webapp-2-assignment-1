@@ -9,7 +9,7 @@ import ResetPage from "./pages/resetPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
-import PopularMoviesPage from "./pages/popularMoviesPage";
+import NowPlayingPageMoviesPage from "./pages/nowPlayingMoviesPage";
 import SiteHeader from './components/siteHeader';
 import PopularPeoplePage from './pages/popularPeoplePage';
 import PersonDetailsPage from './pages/personDetailsPage';
@@ -40,7 +40,7 @@ const App = () => {
       <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
       <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
       <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
-      <Route path="/movies/popular" element={<PopularMoviesPage />} />
+      <Route path="/movies/now-playing" element={<NowPlayingPageMoviesPage />} />
       <Route path="/movies/:id" element={<MoviePage />} />
       <Route path="/movies/home" element={<HomePage />} />
       <Route path="/people" element={<PopularPeoplePage />} />
