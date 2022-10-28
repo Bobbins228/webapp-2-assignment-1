@@ -6,6 +6,7 @@ import MoviePage from "./pages/movieDetailsPage";
 import LoginPage from "./pages/loginPage";
 import RegisterPage from "./pages/registerPage";
 import ResetPage from "./pages/resetPage";
+import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -41,6 +42,7 @@ const App = () => {
       <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
       <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
       <Route path="/movies/now-playing" element={<NowPlayingPageMoviesPage />} />
+      <Route path="/movies/top-rated" element={<TopRatedMoviesPage />} />
       <Route path="/movies/:id" element={<MoviePage />} />
       <Route path="/movies/home" element={<HomePage />} />
       <Route path="/people" element={<PopularPeoplePage />} />
