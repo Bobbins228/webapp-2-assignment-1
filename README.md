@@ -9,7 +9,6 @@ The user can also view lists of popular actors. The movie app allows a user to e
 Users can also look at detailed views of their favourite actors too!
 
 ### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
 
 + Firebase Authentication
 + Now Playing Movies page
@@ -23,10 +22,6 @@ Users can also look at detailed views of their favourite actors too!
 + Actor Details Page 
 + Actor Movies Credit list (visible from a actor's details page)
 + Link to an actor's IMDB pages (visible from a actor's details page)
-
-## Setup requirements.
-
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
 
 ## API endpoints.
 
