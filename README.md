@@ -23,6 +23,14 @@ Users can also look at detailed views of their favourite actors too!
 + Actor Movies Credit list (visible from a actor's details page)
 + Link to an actor's IMDB pages (visible from a actor's details page)
 
+## Setup requirements.
+
+Create a `.env` file in `src` and include the following.
+```
+REACT_APP_TMDB_KEY=<YOUR_TMDB_API_KEY>
+FAST_REFRESH=false
+```
+
 ## API endpoints.
 
 + Movie Home Page Which shows a discover movies list - movies/home
